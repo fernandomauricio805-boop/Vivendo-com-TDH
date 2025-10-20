@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Viver com TDH — Dicas, Prevenção e Convivência</title>
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#4b8bd8;
+      --primary-dark:#3572b0;
+      --bg:#f5f7fa;
+      --card:#ffffff;
+      --text:#333;
+      --radius:10px;
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family:"Poppins",sans-serif;
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* Header hero */
+    header.hero{
+      background:linear-gradient(135deg,var(--primary),#6ca0dc);
+      color:#fff;
+      padding:56px 20px;
+      text-align:center;
+    }
+    header.hero h1{margin:0;font-size:2.1rem}
+    header.hero p{margin:8px 0 0;font-size:1rem;opacity:0.95}
+
+    /* Nav */
+    nav.site-nav{
+      background:#fff;
+      box-shadow:0 2px 8px rgba(0,0,0,0.06);
+      position:sticky; top:0; z-index:30;
+    }
+    .nav-inner{
+      max-width:1100px; margin:0 auto; display:flex; align-items:center;
+      justify-content:space-between; padding:10px 20px; gap:16px;
+    }
+    .logo{color:var(--primary); font-weight:600; text-decoration:none; font-size:1.05rem}
+    .menu-toggle{display:none; cursor:pointer; gap:6px; flex-direction:column}
+    .menu-toggle span{width:22px;height:3px;background:var(--primary);border-radius:3px;display:block}
+
+    ul.menu{
+      list-style:none; margin:0; padding:0; display:flex; gap:22px; align-items:center;
+    }
+    ul.menu li a{
+      text-decoration:none; color:var(--primary); font-weight:500; padding:8px 6px; display:inline-block;
+    }
+    ul.menu li a:hover{color:var(--primary-dark)}
+
+    /* Main */
+    main{max-width:1100px; margin:36px auto; padding:0 20px 60px}
+    section{margin-bottom:36px}
+    h2{color:var(--primary-dark); border-left:5px solid var(--primary); padding-left:12px; margin:0 0 14px}
+    p.lead{margin:8px 0 0;color:#555}
+
+    /* Grid artigos */
+    .artigos-grid{display:grid; gap:18px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .card{
+      background:var(--card); padding:18px; border-radius:var(--radius);
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    }
+    .card h3{margin:0 0 8px;color:var(--primary-dark)}
+    .card p{margin:0;color:#555}
+    .card a.leia{display:inline-block;margin-top:12px;background:var(--primary);color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:600}
+    .card a.leia:hover{background:var(--primary-dark)}
+
+    /* Depoimentos */
+    .depoimentos-grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); margin-top:12px}
+    .depoimento{background:var(--card); padding:18px; border-radius:var(--radius); box-shadow:0 6px 18px rgba(0,0,0,0.05)}
+    .depoimento p{font-style:italic;margin:0 0 10px}
+    .depoimento .autor{font-weight:600;color:var(--primary-dark)}
+
+    /* Form partilhe */
+    form.depo-form{display:flex;flex-direction:column;gap:12px;margin-top:18px;background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+    label{font-weight:500;color:#444}
+    input[type="text"], textarea{padding:12px;border:1px solid #d0d7df;border-radius:8px;font-size:1rem;font-family:inherit}
+    textarea{resize:vertical; min-height:120px}
+    input:focus, textarea:focus{outline:none;border-color:var(--primary); box-shadow:0 0 0 4px rgba(75,139,216,0.08)}
+    button.cta{background:var(--primary);color:#fff;border:none;padding:12px 16px;border-radius:8px;font-weight:600;cursor:pointer}
+    button.cta:hover{background:var(--primary-dark)}
+
+    /* Footer */
+    footer.site-footer{background:var(--primary); color:#fff; padding:22px 10px; text-align:center}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .nav-inner{padding:10px}
+    }
+    @media (max-width:768px){
+      .menu-toggle{display:flex}
+      ul.menu{position:fixed; left:0; right:0; top:64px; background:#fff; flex-direction:column; gap:0; padding:12px; display:none; box-shadow:0 8px 30px rgba(0,0,0,0.12)}
+      ul.menu.active{display:flex}
+      ul.menu li{padding:8px 12px}
+    }
+
+    /* small visual tweaks */
+    a { transition: color .15s ease }
+    .sr-only { position: absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0 }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER HERO -->
+  <header class="hero" role="banner">
+    <h1>Viver com TDH</h1>
+    <p class="lead">Dicas, causas, prevenção e convivência com o Transtorno de Défice de Atenção e Hiperatividade</p>
+  </header>
+
+  <!-- NAV -->
+  <nav class="site-nav" role="navigation" aria-label="Navegação principal">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">Viver com TDH</a>
+
+      <button class="menu-toggle" id="menuToggle" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <ul class="menu" id="menu">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="sobre.html">Sobre o TDH</a></li>
+        <li><a href="#artigos">Artigos</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+    <!-- Início -->
+    <section id="inicio" aria-labelledby="inicio-title">
+      <h2 id="inicio-title">Bem-vindo ao Blogue “Viver com TDH”</h2>
+      <p class="lead">Este espaço foi criado para informar, acolher e ajudar pessoas que convivem com o TDH — seja diretamente ou através de familiares, amigos e colegas. Aqui encontrarás conteúdos sobre sintomas, tratamento, estratégias de convivência e histórias reais de superação.</p>
+    </section>
+
+    <!-- Artigos -->
+    <section id="artigos" aria-labelledby="artigos-title">
+      <h2 id="artigos-title">Artigos Recentes</h2>
+
+      <div class="artigos-grid" role="list">
+        <article class="card" role="listitem">
+          <h3><a href="artigo1.html">Como identificar os primeiros sinais de TDH</a></h3>
+          <p>Aprenda a reconhecer os sintomas do TDH desde cedo e saiba quando procurar ajuda profissional.</p>
+          <a class="leia" href="artigo1.html">Ler artigo</a>
+        </article>
+
+        <article class="card" role="listitem">
+          <h3><a href="artigo2.html">Causas e fatores de risco do TDH</a></h3>
+          <p>Descubra as principais causas, fatores genéticos e ambientais que influenciam o desenvolvimento do transtorno.</p>
+          <a class="leia" href="artigo2.html">Ler artigo</a>
+        </article>
+
+        <article class="card" role="listitem">
+          <h3><a href="artigo3.html">Dicas para conviver com quem tem TDH</a></h3>
+          <p>Entenda como oferecer apoio emocional e criar um ambiente favorável para o bem-estar de todos.</p>
+          <a class="leia" href="artigo3.html">Ler artigo</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" aria-labelledby="depoimentos-title">
+      <h2 id="depoimentos-title">Depoimentos e Histórias Reais</h2>
+      <p class="lead">Inspire-se com pessoas que vivem bem com o TDH e encontram equilíbrio através do conhecimento, aceitação e tratamento.</p>
+
+      <div class="depoimentos-grid" aria-live="polite" aria-atomic="true">
+        <div class="depoimento">
+          <p>“Descobri o TDH aos 28 anos. No início foi difícil, mas hoje vejo que entender a condição foi o primeiro passo para mudar a minha vida.”</p>
+          <div class="autor">— Sofia M., Lisboa</div>
+        </div>
+
+        <div class="depoimento">
+          <p>“O apoio da minha família e o acompanhamento médico foram essenciais. Com o tratamento certo, aprendi a organizar melhor o meu dia.”</p>
+          <div class="autor">— Paulo R., Luanda</div>
+        </div>
+
+        <div class="depoimento">
+          <p>“Sou mãe de uma criança com TDH. Aprendi a ter paciência e a valorizar cada pequeno progresso. Ele é incrível e ensina-me todos os dias.”</p>
+          <div class="autor">— Carla S., Porto</div>
+        </div>
+      </div>
+
+      <!-- Formulário Partilhe a sua história -->
+      <h3 style="margin-top:28px;color:var(--primary-dark)">Partilhe a sua história 💬</h3>
+      <p class="lead">Quer inspirar outras pessoas? Envie o seu depoimento e nós poderemos publicá-lo aqui no blogue.</p>
+
+      <!-- Substitui o action abaixo pelo teu link do Formspree -->
+      <form class="depo-form" action="https://formspree.io/f/COLOCA_AQUI_O_TEU_ID" method="POST" novalidate>
+        <label for="nome">Nome (ou pseudónimo):</label>
+        <input id="nome" name="nome" type="text" placeholder="Ex.: Maria P." required>
+
+        <label for="local">Cidade / País (opcional):</label>
+        <input id="local" name="local" type="text" placeholder="Ex.: Luanda, Angola">
+
+        <label for="mensagem">A sua história:</label>
+        <textarea id="mensagem" name="mensagem" rows="6" placeholder="Conta-nos brevemente a tua experiência..." required></textarea>
+
+        <!-- campo anti-spam invisível esperado pelo Formspree -->
+        <input type="text" name="_gotcha" style="display:none">
+
+        <button class="cta" type="submit">Enviar Depoimento</button>
+      </form>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div>© <span id="ano"></span> Viver com TDH — Informação e apoio para uma vida equilibrada.</div>
+  </footer>
+
+  <script>
+    // ano automático
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    // menu mobile toggle e acessibilidade
+    const menuToggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('menu');
+
+    menuToggle.addEventListener('click', () => {
+      const isActive = menu.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+    });
+
+    // fechar o menu mobile ao clicar num link
+    document.querySelectorAll('#menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (menu.classList.contains('active')) {
+          menu.classList.remove('active');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
